@@ -37,7 +37,7 @@ if rabbitmqctl list_permissions -p $RABBITMQ_DEFAULT_USER | grep $RABBITMQ_DEFAU
   echo "user '$RABBITMQ_DEFAULT_USER' already has permissions '.* .* .*'"
 else
   echo 'setting permissions'
-  rabbitmqctl set_permissions -p $RABBITMQ_DEFAULT_USER $RABBITMQ_DEFAULT_VHOST ".*" ".*" ".*"
+  rabbitmqctl set_permissions -p $RABBITMQ_DEFAULT_VHOST $RABBITMQ_DEFAULT_USER ".*" ".*" ".*"
 fi
 
 service rabbitmq-server stop
