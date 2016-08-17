@@ -33,7 +33,7 @@ fi
 rabbitmqctl add_vhost $RABBITMQ_DEFAULT_VHOST || echo "vhost '$RABBITMQ_DEFAULT_VHOST' already exists"
 
 echo 'list permissions?'
-if rabbitmqctl list_permissions -p $RABBITMQ_DEFAULT_USER | grep $RABBITMQ_DEFAULT_USER | grep "$RABBITMQ_DEFAULT_USER\\.\\*\\s+\\.\\*\\s+\\.\\*\$/"; then
+if rabbitmqctl list_permissions -p $RABBITMQ_DEFAULT_VHOST | grep $RABBITMQ_DEFAULT_USER | grep "$RABBITMQ_DEFAULT_USER\\.\\*\\s+\\.\\*\\s+\\.\\*\$/"; then
   echo "user '$RABBITMQ_DEFAULT_USER' already has permissions '.* .* .*'"
 else
   echo 'setting permissions'
